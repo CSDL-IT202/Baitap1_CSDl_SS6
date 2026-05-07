@@ -1,4 +1,5 @@
-SELECT restaurant_name, address, rating
-FROM Restaurants
-WHERE district IN( 'Quan 3','Quan 1')
-AND rating > 4.0
+SELECT city, SUM(total_price) AS revenue
+FROM Bookings
+WHERE status = 'COMPLETED'
+GROUP BY city
+HAVING SUM(total_price) > 0;
